@@ -2,20 +2,23 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-      user:'ExempleUser',
-      btnCheckValue:true
+    user:{
+      name:'',
+      email:'',
+      pass:''
+    },
+    btnCheckValue: true
   },
   getters: {
   },
   mutations: {
-    changeBtn(state,valorBtn){
-      if(valorBtn=='No'){
-        state.btnCheckValue=true
-      }else{
-        state.btnCheckValue=false
+    changeBtn(state, valorBtn) {
+      if (valorBtn == 'No') {
+        state.btnCheckValue = true
+      } else {
+        state.btnCheckValue = false
       }
-      
-    }
+    },
   },
   actions: {
   },

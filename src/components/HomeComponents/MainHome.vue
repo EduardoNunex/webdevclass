@@ -38,12 +38,12 @@
                                 <h6 class="text-secondary">Email</h6>
                                 <div class="input-group">
                                     <input type="e-mail" class="form-control" placeholder="Digite seu e-mail"
-                                        aria-label="search" aria-describedby="basic-addon1" required>
+                                        aria-label="search" aria-describedby="basic-addon1" v-model="account.email"  required>
                                 </div>
                                 <h6 class="text-secondary mt-4">Senha</h6>
                                 <div class="input-group">
                                     <input type="password" class="form-control" aria-label="search"
-                                        placeholder="Digite sua senha" aria-describedby="basic-addon1" minlength="3"
+                                        placeholder="Digite sua senha" aria-describedby="basic-addon1" v-model="account.password" minlength="3"
                                         required>
                                 </div>
                                 <div class="modal-footer">
@@ -51,10 +51,10 @@
                                         <a href="#">Esqueci minha senha</a>
                                     </div>
                                     <div class="modalButtons">
-                                        <router-link to="/createAccount" data-bs-dismiss="modal">
+                                        <router-link to="/CreateAccountScreen" data-bs-dismiss="modal">
                                             <button type="button" class=" btn btn-secondary">Signup</button>
                                         </router-link>
-                                        <input type="submit" class=" btn btn-primary" value="Login">
+                                        <input type="submit" class=" btn btn-primary" value="Login" @click="login">
                                     </div>
                                 </div>
                             </form>
@@ -65,6 +65,23 @@
         </section>
     </main>
 </template>
+<script>
+    export default {
+        data(){
+            return{
+                account:{
+                    email:'',
+                    password:''
+                }
+            }
+        },
+        methods:{
+            login(){
+                this.$store.commit("updateUser",this.account)
+            }
+        }
+    }
+</script>
 <style scoped>
 .containerButtons {
     justify-content: center;
@@ -91,7 +108,8 @@
     display: flex;
     justify-content: space-between;
 }
-hr{
+
+hr {
     height: 0.5px;
     width: 100%;
 }

@@ -7,16 +7,15 @@
                         <h6 class="p-2 font-weight-bold color-red text-primary">Deliver.Me</h6>
                     </div>
                     <div class="card-body text-left">
-                        <form class="col" id="user-input" @submit="goToRoute">
+                        <form class="col" id="user-input" @submit="createUser">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="Name" required>
+                                <input type="text" class="form-control" placeholder="Name" v-model="this.$store.state.user.name" required>
                                 <label>Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="Email" class="form-control" placeholder="Name" required>
+                                <input type="Email" class="form-control" placeholder="Name" v-model="this.$store.state.user.email" required>
                                 <label>Email</label>
                             </div>
-
                             <PassaAndConfirm />
                             <h6 class="text-secondary mt-4">Data de nascimento</h6>
                             <div class="input-group">
@@ -58,8 +57,8 @@ export default {
         PassaAndConfirm
     },
     methods: {
-        goToRoute() {
-
+        createUser() {
+            this.$store.commit.createUser
         }
     }
 }
