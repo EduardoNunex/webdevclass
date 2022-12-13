@@ -23,9 +23,10 @@
                                 <span>Disponível</span>
                             </div>
                             <div>
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contract-modal">
                                     Contratar
                                 </button>
+                                <ModalContractVue/>
                             </div>
                         </div>
                     </div>
@@ -34,6 +35,15 @@
         </div>
     </main>
 </template>
+<script>
+import ModalContractVue from './ModalContract.vue';
+export default{
+    components:{
+        ModalContractVue
+    }
+}
+</script>
+
 <style scoped>
 img{
     height: 10%;

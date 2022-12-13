@@ -21,6 +21,14 @@
                             <div class="input-group">
                                 <input type="date" class="date">
                             </div>
+                            <div class="tipo">
+                                Como deseja utilizar nossa plataforma ?
+                                <select class="form-select" id="tipo" v-model='status' ref="tipoSelect" required>
+                                    <option selected disabled></option>
+                                    <option value="cliente">Preciso de um entregador</option>
+                                    <option value="entregador">Quero trabalhar com vocês</option>
+                                </select>
+                            </div>
                             <div class="mt-4">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label mr" for="flexCheckDefault">
@@ -36,7 +44,7 @@
                             </div>
                             <div class="d-flex flex-row justify-content-center">
                                 <RouterLink to="/">
-                                <input type="submit" class="btn btn-primary w-50 mt-4" value="Create account"
+                                <input type="submit" class="btn btn-primary mt-4" value="Create account"
                                     :disabled="this.$store.state.btnCheckValue">
                                 </RouterLink>
                             </div>
@@ -77,6 +85,7 @@ export default {
 }
 
 .date {
+    opacity: 80%;
     border: 1px solid;
     border-radius: 5px;
 }
@@ -94,5 +103,15 @@ export default {
 
 .btn {
     width: 100%
+}
+.tipo{
+    width: 50%;
+    margin: 2% 0%;
+}
+#tipo{
+    width: 50%;
+}
+RouterLink{
+    width: 100%;
 }
 </style>
